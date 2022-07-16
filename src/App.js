@@ -1,8 +1,18 @@
+import './index.css';
+import {
+  Body,
+  Container,
+  Header,
+  Image,
+  Link,
+  Button,
+} from './components/Styles';
+import logo from './assets/logo.png';
 import { useEffect, useState } from 'react';
 import {
   VStack,
   useDisclosure,
-  Button,
+  //Button,
   Text,
   HStack,
   Select,
@@ -16,6 +26,27 @@ import { Tooltip } from '@chakra-ui/react';
 import { networkParams } from './networks';
 import { connectors } from './connectors';
 import { toHex, truncateAddress } from './utils';
+import { darkTheme, lightTheme, Theme, SwapWidget } from '@uniswap/widgets';
+
+const infuraRPC =
+  'https://mainnet.infura.io/v3/a7c44e5bd3014e3f95c56d6d6fed0bee';
+
+const myLightTheme: Theme = {
+  ...lightTheme, // Extend the lightTheme
+
+  accent: '#338648',
+  primary: '#000000',
+  secondary: '#565A69',
+};
+
+const myDarkTheme: Theme = {
+  ...darkTheme, // Extend the darkTheme
+  accent: '#338648',
+  primary: '#FFFFFF',
+  secondary: '#888D9B',
+};
+
+let darkMode = true;
 
 export default function Home() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -105,50 +136,41 @@ export default function Home() {
 
   return (
     <>
-      <Text position="absolute" top={0} right="15px">
-        If you're in the sandbox, first "Open in New Window" ⬆️
-      </Text>
-      <VStack justifyContent="center" alignItems="center" h="100vh">
-        <HStack marginBottom="10px">
-          <Text
-            margin="0"
-            lineHeight="1.15"
-            fontSize={['1.5em', '2em', '3em', '4em']}
-            fontWeight="600"
-          >
-            Let's connect with
-          </Text>
-          <Text
-            margin="0"
-            lineHeight="1.15"
-            fontSize={['1.5em', '2em', '3em', '4em']}
-            fontWeight="600"
-            sx={{
-              background: 'linear-gradient(90deg, #1652f0 0%, #b9cbfb 70.35%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
-            Web3-React
-          </Text>
-        </HStack>
-        <HStack>
-          {!active ? (
-            <Button onClick={onOpen}>Connect Wallet</Button>
-          ) : (
-            <Button onClick={disconnect}>Disconnect</Button>
-          )}
-        </HStack>
-        <VStack justifyContent="center" alignItems="center" padding="10px 0">
+      <Container>
+        <Header>
+          {/* <WalletButton /> */}
+
           <HStack>
-            <Text>{`Connection Status: `}</Text>
-            {active ? (
-              <CheckCircleIcon color="green" />
+            {!active ? (
+              <Button onClick={onOpen}>Connect Wallet</Button>
             ) : (
-              <WarningIcon color="#cd5700" />
+              <Button onClick={disconnect}>Disconnect</Button>
             )}
           </HStack>
-
+        </Header>
+        <Body>
+          <Image src={logo} alt="ethereum-logo" />
+          <div className="Text">Spread Light - Buy Photons</div>
+          <SwapWidget
+            provider={library}
+            JsonRpcEndpoint={infuraRPC}
+            theme={darkMode ? myDarkTheme : myLightTheme}
+            //defaultTokenList={MY_TOKEN_LIST}
+            defaultOutputTokenAddress={{
+              1: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+            }}
+            defaultInputAmount={0.5}
+            defaultInputTokenAddress={'NATIVE'}
+          />
+          <br />{' '}
+          <Link href="https://rinkeby.etherscan.io/address/0xa8b537633c783f7fdf6f9af8e0a3eae6827c3745#code">
+            View Governance on Etherscan
+          </Link>
+          <div className="Text">Proposal / Voting Page Coming Soon</div>{' '}
+        </Body>
+      </Container>
+      <VStack justifyContent="center" alignItems="center" h="100vh">
+        <VStack justifyContent="center" alignItems="center" padding="10px 0">
           <Tooltip label={account} placement="right">
             <Text>{`Account: ${truncateAddress(account)}`}</Text>
           </Tooltip>
