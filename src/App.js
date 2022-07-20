@@ -143,7 +143,7 @@ export default function App() {
       <Container>
         <Header>
           <HStack>
-            <Button onClick={() => nowInfo('https://google.com')}>Home</Button>
+            <Button onClick={() => nowInfo('https://now-dao.io')}>Home</Button>
             {/* <Spacer mb={4} /> */}
             {!active ? (
               <Button onClick={onOpen}>Connect Wallet</Button>
