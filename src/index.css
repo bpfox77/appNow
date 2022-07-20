@@ -6,6 +6,7 @@ body {
   font-family: 'Overpass Mono', monospace !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: linear-gradient(0.1turn, #131111, #242324 50%, #111113); */
   background-image: linear-gradient(0.1turn, #131111, #242324 50%, #111113);
 }
 
@@ -30,4 +31,8 @@ code {
   color: rgb(181, 224, 195);
   margin-bottom: 10px;
   margin-top: 10px;
+}
+
+.html {
+  background-color: linear-gradient(0.1turn, #131111, #242324 50%, #111113);
 }

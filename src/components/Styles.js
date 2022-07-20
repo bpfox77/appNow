@@ -24,19 +24,21 @@ export const Button = styled.button`
 `;
 
 export const Container = styled.div`
-  background-color: linear-gradient(0.1turn, #131111, #242324 50%, #111113);
+  //background-color: linear-gradient(0.1turn, #131111, #242324 50%, #111113);
+  background-color: #1a1a1b;
   display: flex;
   flex-direction: column;
-  height: calc(100vh);
+  //height: calc(100vh);
+  //height: 100vh;
 `;
 
 export const Header = styled.header`
-  align-items: center;
   //background-color: #282c34;
-  color: white;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  margin: 10px;
+  //justify-content: space-between;
   min-height: 70px;
 `;
 
