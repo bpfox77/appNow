@@ -18,6 +18,8 @@ import {
   Select,
   Input,
   Box,
+  Flex,
+  Spacer,
 } from '@chakra-ui/react';
 import SelectWalletModal from './Modal';
 import { useWeb3React } from '@web3-react/core';
@@ -144,7 +146,9 @@ export default function App() {
         <Header>
           <HStack>
             <Button onClick={() => nowInfo('https://now-dao.io')}>Home</Button>
-            {/* <Spacer mb={4} /> */}
+            <p className="Text2">Token Sale begins in September</p>{' '}
+          </HStack>
+          <HStack>
             {!active ? (
               <Button onClick={onOpen}>Connect Wallet</Button>
             ) : (
@@ -166,11 +170,10 @@ export default function App() {
             defaultInputAmount={0.5}
             defaultInputTokenAddress={'NATIVE'}
           />
-          <br />{' '}
+          <br />
           <Link href="https://rinkeby.etherscan.io/address/0xa8b537633c783f7fdf6f9af8e0a3eae6827c3745#code">
-            View Governance on Etherscan
+            View Governance on TestNet
           </Link>
-          <div className="Text">Proposal / Voting Page Coming Soon</div>{' '}
           <VStack justifyContent="center" alignItems="center" h="50vh">
             <VStack
               justifyContent="center"

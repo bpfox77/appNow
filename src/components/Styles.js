@@ -38,7 +38,7 @@ export const Header = styled.header`
   flex-direction: row;
   justify-content: flex-end;
   margin: 10px;
-  //justify-content: space-between;
+  justify-content: space-around;
   min-height: 70px;
 `;
 
@@ -53,4 +53,5 @@ export const Link = styled.a.attrs({
 })`
   color: rgb(91, 209, 115);
   margin-top: 8px;
+  text-decoration: underline;
 `;
