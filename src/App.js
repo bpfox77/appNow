@@ -175,9 +175,20 @@ export default function App() {
             defaultInputTokenAddress={'NATIVE'}
           />
           <br />
-          <Link href="https://rinkeby.etherscan.io/address/0xa8b537633c783f7fdf6f9af8e0a3eae6827c3745#code">
-            View Governance on TestNet
+
+          <Link href="https://rinkeby.etherscan.io/address/0x01Ce6dE293148b6C1785a2caD15a5A1062027443#code">
+            Governance
           </Link>
+          <Link href="https://rinkeby.etherscan.io/address/0x2A4DC52d84Fcf16CDf81aE1BbA2be755945B48e4#code">
+            Photon
+          </Link>
+          <div className="Text3">
+            Each movement of a Photon will have a .7% tax to fund the DAO.
+          </div>
+          <div className="Text4">Contracts - migrating to Mumbai/Polygon</div>
+
+          <br />
+
           <VStack justifyContent="center" alignItems="center" h="50vh">
             <VStack
               justifyContent="center"
