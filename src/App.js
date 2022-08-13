@@ -145,11 +145,7 @@ export default function App() {
       <Container>
         <Header>
           <HStack>
-            <Button
-              onClick={() => nowInfo('https://hidden-forest-8380.on.fleek.co/')}
-            >
-              Home
-            </Button>
+            <Button onClick={() => nowInfo('https://now-dao.io/')}>Home</Button>
             <p className="Text2">Photons released this fall</p>{' '}
           </HStack>
           <HStack>
